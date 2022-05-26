@@ -1,14 +1,39 @@
 import  React from 'react';
- import Typography from '@mui/material/Typography';
- import Container from '@mui/material/Container';
+import { makeStyles } from '@mui/styles';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
 
 import Button from '@mui/material/Button';
-import CallIcon from '@mui/icons-material/Call';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+//import CallIcon from '@mui/icons-material/Call';
+//import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+
+const useStyles = makeStyles({
+
+        root: {
+            fontSize: 60,
+            backgroundColor: 'red',
+            '&:hover' : {
+              backgroundColor: 'blue'
+            }
+
+        },
+        title: {
+              
+          textDecoration: 'underline',
+          marginBottom: 20
+
+        }
+   
+
+  })
+ 
+ 
+
 function App() {
   
- 
- 
+  
+
+ const classes = useStyles()
  
  
   return (
@@ -23,11 +48,12 @@ function App() {
 
   
 
-
+ 
 
    
 
     <Typography 
+    className={classes.title}
        variant="h3"
        color="primary"
        align="center"
@@ -38,11 +64,15 @@ function App() {
   
    
     <Button 
-      variant="contained" 
-      color="info"
 
-      startIcon={<CallIcon/>}
-      endIcon={<ArrowForwardIosIcon/>}
+        className={classes.root}
+        variant="contained" 
+     //    color="success"
+
+      
+
+      // startIcon={<CallIcon/>}
+      // endIcon={<ArrowForwardIosIcon/>}
       >
         Call Us
       </Button>
