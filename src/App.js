@@ -1,49 +1,149 @@
-import  React from 'react';
-import { makeStyles } from '@mui/styles';
+
+import * as React from 'react';
+import { styled, alpha } from '@mui/material/styles';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
+import InputBase from '@mui/material/InputBase';
+import MenuIcon from '@mui/icons-material/Menu';
+import SearchIcon from '@mui/icons-material/Search';
 
-import Button from '@mui/material/Button';
-//import CallIcon from '@mui/icons-material/Call';
-//import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+const Search = styled('div')(({ theme }) => ({
+  position: 'relative',
+  borderRadius: theme.shape.borderRadius,
+  backgroundColor: alpha(theme.palette.common.white, 0.15),
+  '&:hover': {
+    backgroundColor: alpha(theme.palette.common.white, 0.25),
+  },
+  marginLeft: 0,
+  width: '100%',
+  [theme.breakpoints.up('sm')]: {
+    marginLeft: theme.spacing(1),
+    width: 'auto',
+  },
+}));
 
-const useStyles = makeStyles({
+const SearchIconWrapper = styled('div')(({ theme }) => ({
+  padding: theme.spacing(0, 2),
+  height: '100%',
+  position: 'absolute',
+  pointerEvents: 'none',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+}));
 
-        root: {
-            fontSize: 60,
-            backgroundColor: 'red',
-            '&:hover' : {
-              backgroundColor: 'blue'
-            }
+const StyledInputBase = styled(InputBase)(({ theme }) => ({
+  color: 'inherit',
+  '& .MuiInputBase-input': {
+    padding: theme.spacing(1, 1, 1, 0),
+    // vertical padding + font size from searchIcon
+    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+    transition: theme.transitions.create('width'),
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
+      width: '12ch',
+      '&:focus': {
+        width: '20ch',
+      },
+    },
+  },
+}));
 
-        },
-        title: {
+export default function SearchAppBar() {
+  return (
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="static" color="secondary">
+        <Toolbar>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="open drawer"
+            sx={{ mr: 2 }}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography
+            variant="h6"
+            noWrap
+            component="div"
+            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+          >
+             আমরা জেগে আছি 
+          </Typography>
+          <Search>
+            <SearchIconWrapper>
+              <SearchIcon />
+            </SearchIconWrapper>
+            <StyledInputBase
+              placeholder="Search…"
+              inputProps={{ 'aria-label': 'search' }}
+            />
+          </Search>
+        </Toolbar>
+      </AppBar>
+    </Box>
+  );
+}
+
+
+
+
+
+
+
+
+
+// import  React from 'react';
+// // import { makeStyles } from '@mui/styles';
+// import Typography from '@mui/material/Typography';
+// import Container from '@mui/material/Container';
+
+// import Button from '@mui/material/Button';
+// import CallIcon from '@mui/icons-material/Call';
+// import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+// import AppBar from '@mui/material/AppBar';
+
+// // const useStyles = makeStyles({
+
+// //         // root: {
+// //         //     fontSize: 60,
+// //         //     backgroundColor: 'red',
+// //         //     '&:hover' : {
+// //         //       backgroundColor: 'blue'
+// //         //     }
+
+// //         // },
+// //         // title: {
               
-          textDecoration: 'underline',
-          marginBottom: 20
+// //         //   textDecoration: 'underline',
+// //         //   marginBottom: 20
 
-        }
+// //         // }
    
 
-  })
+// //   })
  
  
 
-function App() {
+// function App() {
   
   
 
- const classes = useStyles()
+// //  const classes = useStyles()
  
  
-  return (
+//   return (
     
    
 
 
 
 
-   <Container>
+//    <Container>
 
 
   
@@ -52,50 +152,50 @@ function App() {
 
    
 
-    <Typography 
-    className={classes.title}
-       variant="h3"
-       color="primary"
-       align="center"
+//     <Typography 
+//     // className={classes.title}
+//        variant="h3"
+//        color="primary"
+//        align="center"
         
-        >
-       আমরা জেগে আছি
-       </Typography>     
+//         >
+//        আমরা জেগে আছি
+//        </Typography>     
   
    
-    <Button 
+//     <Button 
 
-        className={classes.root}
-        variant="contained" 
-     //    color="success"
+//         // className={classes.root}
+//         variant="contained" 
+//          color="success"
 
       
 
-      // startIcon={<CallIcon/>}
-      // endIcon={<ArrowForwardIosIcon/>}
-      >
-        Call Us
-      </Button>
+//       startIcon={<CallIcon/>}
+//       endIcon={<ArrowForwardIosIcon/>}
+//       >
+//         Call Us
+//       </Button>
    
    
 
    
-   <Button 
-      variant="contained" 
-      color="secondary"
-      href='contained-buttons'
-      >
-        Login In
-      </Button>
+//    <Button 
+//       variant="contained" 
+//       color="secondary"
+//       href='contained-buttons'
+//       >
+//         Login In
+//       </Button>
 
      
     
     
        
-   </Container>
+//    </Container>
      
    
-  );
-}
+//   );
+// }
 
-export default App;
+// export default App;
