@@ -1,2 +1,2 @@
-
+cd amrajegeachi
 start npm
